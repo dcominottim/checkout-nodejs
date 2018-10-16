@@ -5,20 +5,20 @@ const Command = require('../lib/command.js');
 const internals = {};
 
 internals.ads = {
-	classic: { id: 'classic' },
-	standout: { id: 'standout' },
-	premium: { id: 'premium' }
+    classic: { id: 'classic' },
+    standout: { id: 'standout' },
+    premium: { id: 'premium' }
 };
 
 internals.cloneAd = function(adId, times) {
-	const ads = [times];
+    const ads = [times];
 
-	var i;
-	for (i = 0; i < times; i++) {
-		ads[i] = Object.assign({}, internals.ads[adId]);
-	}
+    var i;
+    for (i = 0; i < times; i++) {
+        ads[i] = Object.assign({}, internals.ads[adId]);
+    }
 
-	return ads;
+    return ads;
 };
 
 test('UseCase#run should throw an error when not overriden', () => {
@@ -32,13 +32,13 @@ test('PrepareCheckout#run should return 987.97 for default customer', () => {
 
     const input = 
         { 
-        	customerId: 'default',
+            customerId: 'default',
             cart: {
-            	ads: [
-	            	internals.ads.classic,
-	            	internals.ads.standout,
-	            	internals.ads.premium
-            	]
+                ads: [
+                    internals.ads.classic,
+                    internals.ads.standout,
+                    internals.ads.premium
+                ]
             }
         };
 
@@ -52,13 +52,13 @@ test('PrepareCheckout#run should return 934.97 for Unilever customer', () => {
 
     const input = 
         { 
-        	customerId: 'Unilever',
+            customerId: 'Unilever',
             cart: {
-            	ads: 
-            		internals.cloneAd(internals.ads.classic.id, 3)
-            		.concat(
-            			internals.cloneAd(internals.ads.premium.id, 1)
-        			)
+                ads: 
+                    internals.cloneAd(internals.ads.classic.id, 3)
+                    .concat(
+                        internals.cloneAd(internals.ads.premium.id, 1)
+                    )
             }
         };
 
@@ -72,13 +72,13 @@ test('PrepareCheckout#run should return 1294.96 for Apple customer', () => {
 
     const input = 
         { 
-        	customerId: 'Apple',
+            customerId: 'Apple',
             cart: {
-            	ads: 
-            		internals.cloneAd(internals.ads.standout.id, 3)
-            		.concat(
-            			internals.cloneAd(internals.ads.premium.id, 1)
-        			)
+                ads: 
+                    internals.cloneAd(internals.ads.standout.id, 3)
+                    .concat(
+                        internals.cloneAd(internals.ads.premium.id, 1)
+                    )
             }
         };
 
@@ -92,10 +92,10 @@ test('PrepareCheckout#run should return 1519.96 for Nike customer', () => {
 
     const input = 
         { 
-        	customerId: 'Nike',
+            customerId: 'Nike',
             cart: {
-            	ads: 
-            		internals.cloneAd(internals.ads.premium.id, 4)       
+                ads: 
+                    internals.cloneAd(internals.ads.premium.id, 4)       
             }
         };
 
@@ -109,16 +109,16 @@ test('PrepareCheckout#run should return 2909.91 for Ford customer', () => {
 
     const input = 
         { 
-        	customerId: 'Ford',
+            customerId: 'Ford',
             cart: {
-            	ads: 
-            		internals.cloneAd(internals.ads.premium.id, 3)
-            		.concat(
-            			internals.cloneAd(internals.ads.standout.id, 3)
-        			) 
-        			.concat(
-            			internals.cloneAd(internals.ads.classic.id, 3)
-        			) 
+                ads: 
+                    internals.cloneAd(internals.ads.premium.id, 3)
+                    .concat(
+                        internals.cloneAd(internals.ads.standout.id, 3)
+                    ) 
+                    .concat(
+                        internals.cloneAd(internals.ads.classic.id, 3)
+                    ) 
             }
         };
 
