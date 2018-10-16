@@ -27,3 +27,7 @@ Este projeto foi baseado em princípios de DDD (Domain-Driven Design), CQRS (Com
 # Simulações de Teste
 
 Para simular outros casos de teste diferentes dos fornecidos como exemplo, basta adicionar ou alterar testes no arquivo ```test/command.test.js```.
+
+# Documentação
+
+Para ver a documentação das classes, funções, etc. deste módulo, basta abrir o arquivo ```docs/index.html``` a partir do diretório do repositório clonado.
